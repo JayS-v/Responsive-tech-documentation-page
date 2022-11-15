@@ -1,2 +1,1 @@
-# doc-page
-Responsive technical documentation page with SASS (&amp;&amp; Grid) +  BEM, Mobile First, Progressive Enhancement 
+[Responsive technical documentation page](https://jays-v.github.io/doc-page/) with SASS (&amp;&amp; Grid) +  BEM, Mobile First, Progressive Enhancement 
