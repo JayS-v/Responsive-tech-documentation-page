@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+strong, h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+body::-webkit-scrollbar { /* WebKit */
+  display: none;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h1, h2 {
+  font-size: 1.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "navigation" "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(8%, 20%) 1fr;
+}
+@media (min-width: 768px) {
+  .container {
+    grid-template-areas: "navigation content";
+    grid-template-columns: 28% 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    grid-template-areas: "navigation content";
+    grid-template-columns: 250px 1fr;
+    grid-gap: 30px;
+  }
+}
+
+.navigation {
+  grid-area: navigation;
+  text-align: center;
+  background-color: #eee;
+  border-right: 1px solid #696969;
+  box-shadow: 0 0 3px #2F4F4F;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .navigation {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+@media (min-width: 1024px) {
+  .navigation {
+    position: fixed;
+    text-align: left;
+  }
+}
+.navigation h1 {
+  padding: 10px;
+}
+.navigation__link {
+  color: black;
+  display: block;
+  border-top: 1px solid #ccc;
+  padding: 17px;
+}
+@media (min-width: 1024px) {
+  .navigation__link {
+    padding: 10px;
+  }
+}
+.navigation__link:active {
+  cursor: url("img/circle.png"), pointer;
+}
+.navigation__link:hover {
+  background-color: #ccc;
+  transition-duration: 500ms;
+}
+.navigation__dropdown-menu {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+}
+.navigation__dropdown-menu a {
+  padding-left: 20px;
+}
+li:hover .navigation__dropdown-menu {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.content {
+  grid-area: content;
+  margin: 0 10px 0 15px;
+}
+.content__article {
+  padding: 20px 0 30px 0px;
+}
+.content h2, .content h3 {
+  padding-top: 15px;
+}
+.content p {
+  padding: 15px 0 10px 0;
+  line-height: 1.3rem;
+}
+.content li {
+  list-style: inside;
+  line-height: 1.3rem;
+}
+.content h3 ~ p, .content li {
+  margin-left: 15px;
+}
+
+code {
+  background-color: rgb(218, 218, 218);
+}
+
+/* code exemple 4th paragraph "adding css" */
+#adding-css p:nth-child(5) code {
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

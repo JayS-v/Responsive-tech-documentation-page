@@ -1,0 +1,142 @@
+@use 'simple-reset.css';
+
+@mixin for-tablet {
+    @media (min-width:768px) {@content;}
+}
+@mixin for-desktop {
+    @media (min-width:1024px) {@content;}
+}
+
+// scrollbar
+html {
+    scrollbar-width: none; /* Firefox */
+}
+body {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    &::-webkit-scrollbar { /* WebKit */
+        display: none;
+    }
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+h1, h2 {
+    font-size: 1.5rem;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: "navigation" "content";
+    grid-template-columns: 1fr;
+    grid-template-rows:  minmax(8%,20%) 1fr; 
+    
+    @include for-tablet {
+        grid-template-areas: "navigation content";  
+        grid-template-columns: 28% 1fr;
+    }
+    @include for-desktop {
+        grid-template-areas: "navigation content";  
+        grid-template-columns: 250px 1fr;
+        grid-gap: 30px;
+    }
+}
+
+.navigation {
+    grid-area: navigation;  
+    text-align: center; 
+    background-color: #eee;
+    border-right: 1px solid #696969;
+    box-shadow: 0 0 3px #2F4F4F;
+    font-weight: 500;  
+    
+
+    @include for-tablet {
+        position: sticky;
+        top: 0; 
+        height: 100vh;  
+    }
+    @include for-desktop {
+        position: fixed;
+        text-align: left; 
+    }
+
+    h1 {
+        padding: 10px;
+    }
+
+    &__link {
+        color: black;
+        display: block; 
+        border-top: 1px solid #ccc;
+        padding: 17px;
+
+        @include for-desktop {
+            padding: 10px;
+        }
+    }
+    &__link:active {
+        cursor: url('img/circle.png'), pointer;
+    }
+    &__link:hover {
+        background-color: #ccc;
+        transition-duration: 500ms;
+        }
+
+    &__dropdown-menu {
+        visibility: hidden;
+        height: 0;
+        opacity: 0;
+
+        a {
+            padding-left: 20px;
+        }  
+    }
+    li:hover &__dropdown-menu {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        transition-duration: 1s;
+    };
+}
+
+.content {
+    grid-area: content;
+    margin: 0 10px 0 15px;
+
+    &__article {
+        padding: 20px 0 30px 0px;
+    }
+
+    h2, h3 {
+        padding-top: 15px;
+    }
+    p {
+        padding: 15px 0 10px 0;
+        line-height: 1.3rem;
+    }
+    li {
+        list-style: inside;
+        line-height: 1.3rem;
+    }
+    h3 ~ p, li {
+         margin-left: 15px;
+     }
+}
+
+code {      
+    background-color: rgb(218, 218, 218);
+}
+/* code exemple 4th paragraph "adding css" */
+#adding-css p:nth-child(5) code {  
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+}
+
+
